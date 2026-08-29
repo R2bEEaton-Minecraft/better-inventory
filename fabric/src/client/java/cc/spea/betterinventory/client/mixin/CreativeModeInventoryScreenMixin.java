@@ -4,16 +4,16 @@ import net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen;
 import net.minecraft.world.item.CreativeModeTab;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.ModifyArgs;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.ModifyConstant;
 import org.spongepowered.asm.mixin.injection.invoke.arg.Args;
 
 @Mixin(CreativeModeInventoryScreen.class)
 abstract class CreativeModeInventoryScreenMixin {
-	@Inject(method = "<init>", at = @At("TAIL"))
-	private void betterinventory$extendCreativeBackground(CallbackInfo ci) {
-		((AbstractContainerScreenAccessor) (Object) this).betterinventory$setImageHeight(154);
+	@ModifyConstant(method = "<init>", constant = @Constant(intValue = 136))
+	private int betterinventory$extendCreativeInventoryHeight(int originalHeight) {
+		return 154;
 	}
 
 	@ModifyArgs(
