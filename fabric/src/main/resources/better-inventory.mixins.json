@@ -5,6 +5,7 @@
 	"mixins": [
 		"InventoryMixin",
 		"AbstractContainerMenuMixin",
+		"AbstractContainerMenuAccessor",
 		"InventoryMenuMixin"
 	],
 	"injectors": {
