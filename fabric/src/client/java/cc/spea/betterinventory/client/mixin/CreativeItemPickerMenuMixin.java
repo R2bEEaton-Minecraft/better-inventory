@@ -14,7 +14,7 @@ abstract class CreativeItemPickerMenuMixin {
 		method = "<init>",
 		at = @At(
 			value = "INVOKE",
-			target = "Lnet/minecraft/world/inventory/AbstractContainerMenu;addInventoryHotbarSlots(Lnet/minecraft/world/Container;II)V"
+			target = "Lnet/minecraft/client/gui/screens/inventory/CreativeModeInventoryScreen$ItemPickerMenu;addInventoryHotbarSlots(Lnet/minecraft/world/Container;II)V"
 		),
 		index = 2
 	)
