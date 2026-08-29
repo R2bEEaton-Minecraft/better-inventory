@@ -42,4 +42,10 @@ public final class CreativeInventoryLayout {
 		}
 		return menuSlotIndex >= 46 && menuSlotIndex <= 54 ? 108 : originalY;
 	}
+
+	public static int inventoryTabSlotX(int menuSlotIndex, int originalX) {
+		return menuSlotIndex >= 46 && menuSlotIndex <= 54
+			? 9 + (menuSlotIndex - 46) * SLOT_SIZE
+			: originalX;
+	}
 }

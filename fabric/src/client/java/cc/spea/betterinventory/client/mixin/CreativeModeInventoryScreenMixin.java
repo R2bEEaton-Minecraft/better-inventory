@@ -73,6 +73,7 @@ abstract class CreativeModeInventoryScreenMixin {
 	)
 	private void betterinventory$positionFourthRowInCreativeInventory(Args args) {
 		int menuSlotIndex = args.get(1);
+		args.set(2, CreativeInventoryLayout.inventoryTabSlotX(menuSlotIndex, args.get(2)));
 		args.set(3, CreativeInventoryLayout.inventoryTabSlotY(menuSlotIndex, args.get(3)));
 	}
 

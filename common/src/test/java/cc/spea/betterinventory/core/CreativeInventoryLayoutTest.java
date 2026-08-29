@@ -31,4 +31,10 @@ class CreativeInventoryLayoutTest {
 		assertThat(CreativeInventoryLayout.inventoryTabSlotY(45, 20)).isEqualTo(20);
 		assertThat(CreativeInventoryLayout.inventoryTabSlotY(46, -2000)).isEqualTo(108);
 	}
+
+	@Test
+	void maps_the_extra_creative_row_to_all_nine_visual_columns() {
+		assertThat(CreativeInventoryLayout.inventoryTabSlotX(46, 27)).isEqualTo(9);
+		assertThat(CreativeInventoryLayout.inventoryTabSlotX(54, 9)).isEqualTo(153);
+	}
 }
