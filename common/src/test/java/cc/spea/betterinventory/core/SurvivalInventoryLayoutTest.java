@@ -8,5 +8,6 @@ class SurvivalInventoryLayoutTest {
 	@Test
 	void adds_one_slot_height_to_the_vanilla_inventory_background() {
 		assertThat(SurvivalInventoryLayout.extendedHeight(166)).isEqualTo(184);
+		assertThat(SurvivalInventoryLayout.outsideClickHeight(166)).isEqualTo(184);
 	}
 }

@@ -9,4 +9,8 @@ public final class SurvivalInventoryLayout {
 	public static int extendedHeight(int originalHeight) {
 		return originalHeight + EXTRA_ROW_HEIGHT;
 	}
+
+	public static int outsideClickHeight(int originalHeight) {
+		return extendedHeight(originalHeight);
+	}
 }
