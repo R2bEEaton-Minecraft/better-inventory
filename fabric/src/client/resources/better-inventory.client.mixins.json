@@ -3,6 +3,8 @@
 	"package": "cc.spea.betterinventory.client.mixin",
 	"compatibilityLevel": "JAVA_25",
 	"client": [
+		"AbstractContainerScreenMixin",
+		"InventoryScreenMixin",
 		"CreativeModeInventoryScreenMixin",
 		"CreativeItemPickerMenuMixin"
 	],
