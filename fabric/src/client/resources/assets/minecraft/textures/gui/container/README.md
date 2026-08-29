@@ -14,4 +14,4 @@ Keep the canvas width and the existing texture coordinates unless the matching
 screen-rendering code is updated as well.
 Container textures copied from Minecraft 26.2 for direct editing.
 
-Each PNG other than `inventory.png` keeps its vanilla canvas dimensions. Better Inventory finds the first non-transparent pixel from the bottom at x=4, then duplicates the 18-pixel band beginning 29 pixels above that visible edge into the transparent space directly below it, using nearest-neighbor pixels. This gives Better Inventory a vanilla-style placeholder row while keeping every texture editable.
+Each PNG other than `inventory.png` is 18 pixels taller than vanilla. Better Inventory finds the first non-transparent pixel from the bottom at x=4, moves up 29 pixels, copies the 18 pixels immediately above that point, leaves an 18-pixel transparent gap below the visible GUI edge, then pastes the copied band after the gap using nearest-neighbor pixels. This gives Better Inventory a vanilla-style placeholder row while keeping every texture editable.
