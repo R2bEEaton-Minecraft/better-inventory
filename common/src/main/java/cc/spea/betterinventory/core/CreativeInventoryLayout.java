@@ -33,7 +33,7 @@ public final class CreativeInventoryLayout {
 	}
 
 	public static int fourthInventoryRowY() {
-		return 110;
+		return 108;
 	}
 
 	public static int destroySlotY() {
