@@ -18,4 +18,10 @@ class CreativeInventoryLayoutTest {
 		assertThat(CreativeInventoryLayout.extendedHeight(136)).isEqualTo(154);
 		assertThat(CreativeInventoryLayout.extendedScrollTrackHeight(112)).isEqualTo(130);
 	}
+
+	@Test
+	void positions_creative_player_rows_below_the_sixth_catalog_row() {
+		assertThat(CreativeInventoryLayout.catalogHotbarY(112)).isEqualTo(130);
+		assertThat(CreativeInventoryLayout.fourthInventoryRowY()).isEqualTo(110);
+	}
 }

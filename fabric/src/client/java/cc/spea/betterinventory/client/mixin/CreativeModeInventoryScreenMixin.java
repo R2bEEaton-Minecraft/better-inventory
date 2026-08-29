@@ -39,7 +39,14 @@ abstract class CreativeModeInventoryScreenMixin {
 		return CreativeInventoryLayout.extendedHeight(originalHeight);
 	}
 
-	@Inject(method = "extractBackground", at = @At("TAIL"))
+	@Inject(
+		method = "extractBackground",
+		at = @At(
+			value = "INVOKE",
+			target = "Lnet/minecraft/client/gui/GuiGraphicsExtractor;blit(Lcom/mojang/blaze3d/pipeline/RenderPipeline;Lnet/minecraft/resources/Identifier;IIFFIIII)V",
+			shift = At.Shift.AFTER
+		)
+	)
 	private void betterinventory$renderSixthCreativeRowBackground(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float tickDelta, CallbackInfo ci) {
 		AbstractContainerScreenAccessor screen = (AbstractContainerScreenAccessor) (Object) this;
 		graphics.blit(
@@ -69,7 +76,7 @@ abstract class CreativeModeInventoryScreenMixin {
 			args.set(3, 130);
 		} else if (menuSlotIndex >= 46 && menuSlotIndex <= 54) {
 			args.set(2, 9 + (menuSlotIndex - 46) * 18);
-			args.set(3, 112);
+			args.set(3, CreativeInventoryLayout.fourthInventoryRowY());
 		}
 	}
 }

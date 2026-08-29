@@ -27,4 +27,12 @@ public final class CreativeInventoryLayout {
 	public static int extendedScrollTrackHeight(int originalHeight) {
 		return originalHeight + SLOT_SIZE;
 	}
+
+	public static int catalogHotbarY(int originalY) {
+		return originalY + SLOT_SIZE;
+	}
+
+	public static int fourthInventoryRowY() {
+		return 110;
+	}
 }
