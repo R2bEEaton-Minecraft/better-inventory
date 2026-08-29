@@ -47,15 +47,4 @@ abstract class InventoryMixin implements ExpandedInventoryAccess {
 		}
 	}
 
-	@Inject(method = "dropAll", at = @At("TAIL"))
-	private void betterinventory$dropExtraRow(CallbackInfo ci) {
-		Inventory inventory = (Inventory) (Object) this;
-		for (int slot = 0; slot < this.betterinventory$extraRow.size(); slot++) {
-			ItemStack stack = this.betterinventory$extraRow.get(slot);
-			if (!stack.isEmpty()) {
-				inventory.player.drop(stack, true, false);
-				this.betterinventory$extraRow.set(slot, ItemStack.EMPTY);
-			}
-		}
-	}
 }
