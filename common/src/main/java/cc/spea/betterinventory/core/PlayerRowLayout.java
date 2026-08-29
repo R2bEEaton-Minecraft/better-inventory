@@ -19,11 +19,11 @@ public final class PlayerRowLayout {
 	}
 
 	public static int inventoryMenuHotbarY(int hotbarY) {
-		return hotbarY + 20;
+		return hotbarY + ROW_HEIGHT;
 	}
 
 	public static int inventoryRecipeBookButtonY(int originalY) {
-		return originalY - ROW_HEIGHT;
+		return originalY - 10;
 	}
 
 	public static int expandedScreenHeight(int originalHeight) {

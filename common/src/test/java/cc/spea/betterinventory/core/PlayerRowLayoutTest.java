@@ -12,13 +12,13 @@ class PlayerRowLayoutTest {
 	}
 
 	@Test
-	void moves_only_the_survival_inventory_hotbar_twenty_pixels_down() {
-		assertThat(PlayerRowLayout.inventoryMenuHotbarY(142)).isEqualTo(162);
+	void moves_only_the_survival_inventory_hotbar_eighteen_pixels_down() {
+		assertThat(PlayerRowLayout.inventoryMenuHotbarY(142)).isEqualTo(160);
 	}
 
 	@Test
-	void moves_the_survival_recipe_book_button_up_one_slot_height() {
-		assertThat(PlayerRowLayout.inventoryRecipeBookButtonY(68)).isEqualTo(50);
+	void moves_the_survival_recipe_book_button_up_ten_pixels() {
+		assertThat(PlayerRowLayout.inventoryRecipeBookButtonY(68)).isEqualTo(58);
 	}
 
 	@Test
