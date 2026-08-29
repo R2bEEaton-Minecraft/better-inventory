@@ -1,19 +1,15 @@
 package cc.spea.betterinventory.client.mixin;
 
-import cc.spea.betterinventory.core.SurvivalInventoryLayout;
-import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
+import cc.spea.betterinventory.core.PlayerRowLayout;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
-import net.minecraft.client.gui.screens.inventory.InventoryScreen;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Constant;
+import org.spongepowered.asm.mixin.injection.ModifyConstant;
 
 @Mixin(AbstractContainerScreen.class)
 abstract class AbstractContainerScreenMixin {
-	@ModifyExpressionValue(
-		method = "hasClickedOutside",
-		at = @At(value = "FIELD", target = "Lnet/minecraft/client/gui/screens/inventory/AbstractContainerScreen;imageHeight:I")
-	)
-	private int betterinventory$includeSurvivalInventoryBottomRow(int originalHeight) {
-		return (Object) this instanceof InventoryScreen ? SurvivalInventoryLayout.extendedHeight(originalHeight) : originalHeight;
+	@ModifyConstant(method = "<init>", constant = @Constant(intValue = 166))
+	private static int betterinventory$includeInsertedPlayerRowInDefaultScreenHeight(int originalHeight) {
+		return PlayerRowLayout.expandedScreenHeight(originalHeight);
 	}
 }

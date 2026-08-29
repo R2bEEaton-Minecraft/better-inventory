@@ -5,8 +5,7 @@
 	"client": [
 		"AbstractContainerScreenAccessor",
 		"AbstractContainerScreenMixin",
-		"AbstractRecipeBookScreenMixin",
-		"InventoryScreenMixin",
+		"ContainerScreenMixin",
 		"CreativeModeInventoryScreenMixin",
 		"CreativeItemPickerMenuMixin"
 	],

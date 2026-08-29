@@ -15,4 +15,12 @@ public final class PlayerRowLayout {
 	public static int movedHotbarY(int hotbarY) {
 		return hotbarY + ROW_HEIGHT;
 	}
+
+	public static int expandedScreenHeight(int originalHeight) {
+		return originalHeight + ROW_HEIGHT;
+	}
+
+	public static int expandedGenericPlayerSectionHeight(int originalHeight) {
+		return originalHeight + ROW_HEIGHT;
+	}
 }
