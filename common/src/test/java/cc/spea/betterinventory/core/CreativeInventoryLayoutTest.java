@@ -25,4 +25,10 @@ class CreativeInventoryLayoutTest {
 		assertThat(CreativeInventoryLayout.fourthInventoryRowY()).isEqualTo(108);
 		assertThat(CreativeInventoryLayout.destroySlotY()).isEqualTo(130);
 	}
+
+	@Test
+	void maps_the_inventory_menu_extra_row_after_the_vanilla_offhand_slot() {
+		assertThat(CreativeInventoryLayout.inventoryMenuExtraRowStart()).isEqualTo(46);
+		assertThat(CreativeInventoryLayout.inventoryMenuExtraRowEnd()).isEqualTo(54);
+	}
 }

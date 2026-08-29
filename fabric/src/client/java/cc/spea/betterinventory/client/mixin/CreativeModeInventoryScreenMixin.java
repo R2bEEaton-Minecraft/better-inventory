@@ -75,8 +75,9 @@ abstract class CreativeModeInventoryScreenMixin {
 		int menuSlotIndex = args.get(1);
 		if (menuSlotIndex >= 36 && menuSlotIndex <= 44) {
 			args.set(3, 130);
-		} else if (menuSlotIndex >= 46 && menuSlotIndex <= 54) {
-			args.set(2, 9 + (menuSlotIndex - 46) * 18);
+		} else if (menuSlotIndex >= CreativeInventoryLayout.inventoryMenuExtraRowStart()
+			&& menuSlotIndex <= CreativeInventoryLayout.inventoryMenuExtraRowEnd()) {
+			args.set(2, 9 + (menuSlotIndex - CreativeInventoryLayout.inventoryMenuExtraRowStart()) * 18);
 			args.set(3, CreativeInventoryLayout.fourthInventoryRowY());
 		}
 	}

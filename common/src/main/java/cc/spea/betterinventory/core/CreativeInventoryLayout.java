@@ -39,4 +39,12 @@ public final class CreativeInventoryLayout {
 	public static int destroySlotY() {
 		return 130;
 	}
+
+	public static int inventoryMenuExtraRowStart() {
+		return 46;
+	}
+
+	public static int inventoryMenuExtraRowEnd() {
+		return inventoryMenuExtraRowStart() + InventorySlots.EXTRA_ROW_SIZE - 1;
+	}
 }
