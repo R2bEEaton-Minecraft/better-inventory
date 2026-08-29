@@ -4,6 +4,7 @@ package cc.spea.betterinventory.core;
 public final class PlayerRowLayout {
 	public static final int ROW_HEIGHT = 18;
 	public static final int HOTBAR_GAP = 4;
+	private static final String CREATIVE_ITEM_PICKER_MENU = "net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen$ItemPickerMenu";
 
 	private PlayerRowLayout() {
 	}
@@ -22,5 +23,17 @@ public final class PlayerRowLayout {
 
 	public static int expandedGenericPlayerSectionHeight(int originalHeight) {
 		return originalHeight + ROW_HEIGHT;
+	}
+
+	public static int inventoryLabelY(int expandedScreenHeight) {
+		return expandedScreenHeight - inventoryLabelBottomMargin();
+	}
+
+	public static int inventoryLabelBottomMargin() {
+		return 94 + ROW_HEIGHT;
+	}
+
+	public static boolean shouldAddExtraRow(String menuClassName) {
+		return !CREATIVE_ITEM_PICKER_MENU.equals(menuClassName);
 	}
 }

@@ -21,12 +21,12 @@ abstract class AbstractContainerMenuMixin {
 		index = 3
 	)
 	private int betterinventory$moveInventoryMenuHotbarDown(int y) {
-		return PlayerRowLayout.movedHotbarY(y);
+		return PlayerRowLayout.shouldAddExtraRow(this.getClass().getName()) ? PlayerRowLayout.movedHotbarY(y) : y;
 	}
 
 	@Inject(method = "addInventoryHotbarSlots", at = @At("TAIL"))
 	private void betterinventory$addExtraPlayerRow(Container inventory, int left, int top, CallbackInfo ci) {
-		if (inventory instanceof Inventory playerInventory) {
+		if (inventory instanceof Inventory playerInventory && PlayerRowLayout.shouldAddExtraRow(this.getClass().getName())) {
 			ExtraRowContainer extraRow = new ExtraRowContainer(playerInventory);
 			for (int column = 0; column < 9; column++) {
 				((AbstractContainerMenuAccessor) (Object) this).betterinventory$addSlot(

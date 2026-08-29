@@ -12,4 +12,12 @@ abstract class AbstractContainerScreenMixin {
 	private static int betterinventory$includeInsertedPlayerRowInDefaultScreenHeight(int originalHeight) {
 		return PlayerRowLayout.expandedScreenHeight(originalHeight);
 	}
+
+	@ModifyConstant(
+		method = "<init>(Lnet/minecraft/world/inventory/AbstractContainerMenu;Lnet/minecraft/world/entity/player/Inventory;Lnet/minecraft/network/chat/Component;II)V",
+		constant = @Constant(intValue = 94)
+	)
+	private static int betterinventory$keepInventoryLabelAboveInsertedRow(int originalMargin) {
+		return PlayerRowLayout.inventoryLabelBottomMargin();
+	}
 }

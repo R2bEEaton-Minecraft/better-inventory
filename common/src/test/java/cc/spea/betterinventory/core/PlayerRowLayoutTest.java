@@ -16,4 +16,16 @@ class PlayerRowLayoutTest {
 		assertThat(PlayerRowLayout.expandedScreenHeight(166)).isEqualTo(184);
 		assertThat(PlayerRowLayout.expandedGenericPlayerSectionHeight(96)).isEqualTo(114);
 	}
+
+	@Test
+	void keeps_the_inventory_label_above_the_original_first_inventory_row() {
+		assertThat(PlayerRowLayout.inventoryLabelY(184)).isEqualTo(72);
+	}
+
+	@Test
+	void leaves_the_creative_picker_to_its_dedicated_hotbar_layout() {
+		assertThat(PlayerRowLayout.shouldAddExtraRow("net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen$ItemPickerMenu"))
+			.isFalse();
+		assertThat(PlayerRowLayout.shouldAddExtraRow("net.minecraft.world.inventory.ChestMenu")).isTrue();
+	}
 }
