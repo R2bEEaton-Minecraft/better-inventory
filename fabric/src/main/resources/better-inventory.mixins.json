@@ -3,7 +3,9 @@
 	"package": "cc.spea.betterinventory.mixin",
 	"compatibilityLevel": "JAVA_25",
 	"mixins": [
-		"ExampleMixin"
+		"InventoryMixin",
+		"AbstractContainerMenuMixin",
+		"InventoryMenuMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
