@@ -23,5 +23,6 @@ class CreativeInventoryLayoutTest {
 	void positions_creative_player_rows_below_the_sixth_catalog_row() {
 		assertThat(CreativeInventoryLayout.catalogHotbarY(112)).isEqualTo(130);
 		assertThat(CreativeInventoryLayout.fourthInventoryRowY()).isEqualTo(110);
+		assertThat(CreativeInventoryLayout.destroySlotY()).isEqualTo(130);
 	}
 }

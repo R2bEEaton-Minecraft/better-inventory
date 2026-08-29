@@ -35,4 +35,8 @@ public final class CreativeInventoryLayout {
 	public static int fourthInventoryRowY() {
 		return 110;
 	}
+
+	public static int destroySlotY() {
+		return 130;
+	}
 }
