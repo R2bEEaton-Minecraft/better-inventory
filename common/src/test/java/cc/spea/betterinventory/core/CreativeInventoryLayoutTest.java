@@ -22,19 +22,13 @@ class CreativeInventoryLayoutTest {
 	@Test
 	void positions_creative_player_rows_below_the_sixth_catalog_row() {
 		assertThat(CreativeInventoryLayout.catalogHotbarY(112)).isEqualTo(130);
-		assertThat(CreativeInventoryLayout.fourthInventoryRowY()).isEqualTo(108);
 		assertThat(CreativeInventoryLayout.destroySlotY()).isEqualTo(130);
 	}
 
 	@Test
-	void maps_the_inventory_menu_extra_row_after_the_vanilla_offhand_slot() {
-		assertThat(CreativeInventoryLayout.inventoryMenuExtraRowStart()).isEqualTo(46);
-		assertThat(CreativeInventoryLayout.inventoryMenuExtraRowEnd()).isEqualTo(54);
-	}
-
-	@Test
-	void positions_each_extra_row_column_in_the_creative_inventory() {
-		assertThat(CreativeInventoryLayout.fourthInventoryRowX(0)).isEqualTo(9);
-		assertThat(CreativeInventoryLayout.fourthInventoryRowX(8)).isEqualTo(153);
+	void only_moves_vanilla_hotbar_slots_in_the_creative_inventory_tab() {
+		assertThat(CreativeInventoryLayout.inventoryTabSlotY(36, 112)).isEqualTo(130);
+		assertThat(CreativeInventoryLayout.inventoryTabSlotY(45, 20)).isEqualTo(20);
+		assertThat(CreativeInventoryLayout.inventoryTabSlotY(46, 108)).isEqualTo(108);
 	}
 }

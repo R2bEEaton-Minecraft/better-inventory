@@ -32,23 +32,11 @@ public final class CreativeInventoryLayout {
 		return originalY + SLOT_SIZE;
 	}
 
-	public static int fourthInventoryRowY() {
-		return 108;
-	}
-
-	public static int fourthInventoryRowX(int column) {
-		return 9 + column * SLOT_SIZE;
-	}
-
 	public static int destroySlotY() {
 		return 130;
 	}
 
-	public static int inventoryMenuExtraRowStart() {
-		return 46;
-	}
-
-	public static int inventoryMenuExtraRowEnd() {
-		return inventoryMenuExtraRowStart() + InventorySlots.EXTRA_ROW_SIZE - 1;
+	public static int inventoryTabSlotY(int menuSlotIndex, int originalY) {
+		return menuSlotIndex >= 36 && menuSlotIndex <= 44 ? catalogHotbarY(originalY) : originalY;
 	}
 }

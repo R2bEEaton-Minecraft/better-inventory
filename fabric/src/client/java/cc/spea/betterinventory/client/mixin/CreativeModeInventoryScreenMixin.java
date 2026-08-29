@@ -1,13 +1,11 @@
 package cc.spea.betterinventory.client.mixin;
 
 import cc.spea.betterinventory.core.CreativeInventoryLayout;
-import cc.spea.betterinventory.inventory.ExtraRowContainer;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen;
 import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.inventory.Slot;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -75,13 +73,7 @@ abstract class CreativeModeInventoryScreenMixin {
 	)
 	private void betterinventory$positionFourthRowInCreativeInventory(Args args) {
 		int menuSlotIndex = args.get(1);
-		Slot targetSlot = args.get(0);
-		if (targetSlot.container instanceof ExtraRowContainer) {
-			args.set(2, CreativeInventoryLayout.fourthInventoryRowX(targetSlot.getContainerSlot()));
-			args.set(3, CreativeInventoryLayout.fourthInventoryRowY());
-		} else if (menuSlotIndex >= 36 && menuSlotIndex <= 44) {
-			args.set(3, 130);
-		}
+		args.set(3, CreativeInventoryLayout.inventoryTabSlotY(menuSlotIndex, args.get(3)));
 	}
 
 	@ModifyArg(
