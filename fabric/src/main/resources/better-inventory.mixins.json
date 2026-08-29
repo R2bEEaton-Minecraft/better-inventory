@@ -8,7 +8,7 @@
 		"ServerPlayerMixin",
 		"AbstractContainerMenuMixin",
 		"AbstractContainerMenuAccessor",
-		"InventoryMenuMixin"
+		"InventoryPickupMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
