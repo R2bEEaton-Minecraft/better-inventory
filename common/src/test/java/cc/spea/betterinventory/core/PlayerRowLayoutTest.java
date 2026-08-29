@@ -17,6 +17,11 @@ class PlayerRowLayoutTest {
 	}
 
 	@Test
+	void moves_the_survival_recipe_book_button_up_one_slot_height() {
+		assertThat(PlayerRowLayout.inventoryRecipeBookButtonY(68)).isEqualTo(50);
+	}
+
+	@Test
 	void expands_screen_and_generic_player_section_for_the_inserted_row() {
 		assertThat(PlayerRowLayout.expandedScreenHeight(166)).isEqualTo(184);
 		assertThat(PlayerRowLayout.expandedGenericPlayerSectionHeight(96)).isEqualTo(114);

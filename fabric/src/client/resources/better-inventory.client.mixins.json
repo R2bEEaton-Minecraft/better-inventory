@@ -6,6 +6,7 @@
 		"AbstractContainerScreenAccessor",
 		"AbstractContainerScreenMixin",
 		"ContainerScreenMixin",
+		"InventoryScreenMixin",
 		"CreativeModeInventoryScreenMixin",
 		"CreativeItemPickerMenuMixin"
 	],
