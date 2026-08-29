@@ -2,10 +2,7 @@
 	"required": true,
 	"package": "cc.spea.betterinventory.client.mixin",
 	"compatibilityLevel": "JAVA_25",
-	"client": [
-		"AbstractContainerScreenMixin",
-		"CreativeModeInventoryScreenMixin"
-	],
+	"client": ["CreativeModeInventoryScreenMixin"],
 	"injectors": {
 		"defaultRequire": 1
 	},
