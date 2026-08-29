@@ -26,6 +26,7 @@ class PlayerRowLayoutTest {
 	void leaves_the_creative_picker_to_its_dedicated_hotbar_layout() {
 		assertThat(PlayerRowLayout.shouldAddExtraRow("net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen$ItemPickerMenu"))
 			.isFalse();
+		assertThat(PlayerRowLayout.shouldAddExtraRow("net.minecraft.world.inventory.InventoryMenu")).isFalse();
 		assertThat(PlayerRowLayout.shouldAddExtraRow("net.minecraft.world.inventory.ChestMenu")).isTrue();
 	}
 }

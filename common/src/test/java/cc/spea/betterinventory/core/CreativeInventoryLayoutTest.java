@@ -29,6 +29,6 @@ class CreativeInventoryLayoutTest {
 	void only_moves_vanilla_hotbar_slots_in_the_creative_inventory_tab() {
 		assertThat(CreativeInventoryLayout.inventoryTabSlotY(36, 112)).isEqualTo(130);
 		assertThat(CreativeInventoryLayout.inventoryTabSlotY(45, 20)).isEqualTo(20);
-		assertThat(CreativeInventoryLayout.inventoryTabSlotY(46, 108)).isEqualTo(108);
+		assertThat(CreativeInventoryLayout.inventoryTabSlotY(46, -2000)).isEqualTo(108);
 	}
 }

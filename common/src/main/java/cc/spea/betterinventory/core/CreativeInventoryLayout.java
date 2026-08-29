@@ -37,6 +37,9 @@ public final class CreativeInventoryLayout {
 	}
 
 	public static int inventoryTabSlotY(int menuSlotIndex, int originalY) {
-		return menuSlotIndex >= 36 && menuSlotIndex <= 44 ? catalogHotbarY(originalY) : originalY;
+		if (menuSlotIndex >= 36 && menuSlotIndex <= 44) {
+			return catalogHotbarY(originalY);
+		}
+		return menuSlotIndex >= 46 && menuSlotIndex <= 54 ? 108 : originalY;
 	}
 }
