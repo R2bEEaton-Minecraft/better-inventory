@@ -23,7 +23,10 @@ public class BetterInventory implements ModInitializer {
 		PayloadTypeRegistry.serverboundPlay().register(SwapHotbarPayload.TYPE, SwapHotbarPayload.CODEC);
 		ServerPlayNetworking.registerGlobalReceiver(SwapHotbarPayload.TYPE, (payload, context) -> {
 			HotbarSwapHandler.swap(context.player().getInventory());
-			context.player().inventoryMenu.broadcastChanges();
+			context.player().inventoryMenu.broadcastFullState();
+			if (context.player().containerMenu != context.player().inventoryMenu) {
+				context.player().containerMenu.broadcastFullState();
+			}
 		});
 	}
 
