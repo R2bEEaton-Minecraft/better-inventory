@@ -12,6 +12,11 @@ class PlayerRowLayoutTest {
 	}
 
 	@Test
+	void moves_only_the_survival_inventory_hotbar_twenty_pixels_down() {
+		assertThat(PlayerRowLayout.inventoryMenuHotbarY(142)).isEqualTo(162);
+	}
+
+	@Test
 	void expands_screen_and_generic_player_section_for_the_inserted_row() {
 		assertThat(PlayerRowLayout.expandedScreenHeight(166)).isEqualTo(184);
 		assertThat(PlayerRowLayout.expandedGenericPlayerSectionHeight(96)).isEqualTo(114);

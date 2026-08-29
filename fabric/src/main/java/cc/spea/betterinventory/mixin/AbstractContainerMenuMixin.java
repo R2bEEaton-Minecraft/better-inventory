@@ -20,7 +20,13 @@ abstract class AbstractContainerMenuMixin {
 		index = 3
 	)
 	private int betterinventory$moveInventoryMenuHotbarDown(int y) {
-		return PlayerRowLayout.shouldAddExtraRow(this.getClass().getName()) ? PlayerRowLayout.movedHotbarY(y) : y;
+		String menuClassName = this.getClass().getName();
+		if (!PlayerRowLayout.shouldMoveHotbar(menuClassName)) {
+			return y;
+		}
+		return PlayerRowLayout.shouldAddExtraRow(menuClassName)
+			? PlayerRowLayout.movedHotbarY(y)
+			: PlayerRowLayout.inventoryMenuHotbarY(y);
 	}
 
 	@Inject(method = "addInventoryHotbarSlots", at = @At("TAIL"))

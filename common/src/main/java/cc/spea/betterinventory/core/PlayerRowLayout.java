@@ -18,6 +18,10 @@ public final class PlayerRowLayout {
 		return hotbarY + ROW_HEIGHT;
 	}
 
+	public static int inventoryMenuHotbarY(int hotbarY) {
+		return hotbarY + 20;
+	}
+
 	public static int expandedScreenHeight(int originalHeight) {
 		return originalHeight + ROW_HEIGHT;
 	}
@@ -36,5 +40,9 @@ public final class PlayerRowLayout {
 
 	public static boolean shouldAddExtraRow(String menuClassName) {
 		return !CREATIVE_ITEM_PICKER_MENU.equals(menuClassName) && !INVENTORY_MENU.equals(menuClassName);
+	}
+
+	public static boolean shouldMoveHotbar(String menuClassName) {
+		return shouldAddExtraRow(menuClassName) || INVENTORY_MENU.equals(menuClassName);
 	}
 }
