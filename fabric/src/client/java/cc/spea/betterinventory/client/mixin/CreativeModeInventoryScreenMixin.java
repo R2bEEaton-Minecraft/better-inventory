@@ -19,12 +19,6 @@ import org.spongepowered.asm.mixin.injection.invoke.arg.Args;
 @Mixin(CreativeModeInventoryScreen.class)
 abstract class CreativeModeInventoryScreenMixin {
 	@Shadow
-	protected int leftPos;
-
-	@Shadow
-	protected int topPos;
-
-	@Shadow
 	private static CreativeModeTab selectedTab;
 
 	@ModifyConstant(method = "<clinit>", constant = @Constant(intValue = 45))
@@ -39,7 +33,7 @@ abstract class CreativeModeInventoryScreenMixin {
 
 	@ModifyExpressionValue(
 		method = {"getTabY", "extractTabButton", "hasClickedOutside"},
-		at = @At(value = "FIELD", target = "Lnet/minecraft/client/gui/screens/inventory/AbstractContainerScreen;imageHeight:I")
+		at = @At(value = "FIELD", target = "Lnet/minecraft/client/gui/screens/inventory/CreativeModeInventoryScreen;imageHeight:I")
 	)
 	private int betterinventory$extendCreativeBottomBounds(int originalHeight) {
 		return CreativeInventoryLayout.extendedHeight(originalHeight);
@@ -47,11 +41,12 @@ abstract class CreativeModeInventoryScreenMixin {
 
 	@Inject(method = "extractBackground", at = @At("TAIL"))
 	private void betterinventory$renderSixthCreativeRowBackground(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float tickDelta, CallbackInfo ci) {
+		AbstractContainerScreenAccessor screen = (AbstractContainerScreenAccessor) (Object) this;
 		graphics.blit(
 			RenderPipelines.GUI_TEXTURED,
 			selectedTab.getBackgroundTexture(),
-			this.leftPos,
-			this.topPos + 136,
+			screen.betterinventory$getLeftPos(),
+			screen.betterinventory$getTopPos() + 136,
 			0.0F,
 			136.0F,
 			195,
