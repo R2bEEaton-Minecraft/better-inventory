@@ -4,7 +4,9 @@ import cc.spea.betterinventory.core.PlayerRowLayout;
 import net.minecraft.client.gui.screens.inventory.ContainerScreen;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
+import org.spongepowered.asm.mixin.injection.ModifyConstant;
 
 @Mixin(ContainerScreen.class)
 abstract class ContainerScreenMixin {
@@ -30,5 +32,10 @@ abstract class ContainerScreenMixin {
 	)
 	private int betterinventory$renderInsertedPlayerRowInContainerSection(int originalHeight) {
 		return originalHeight == 96 ? PlayerRowLayout.expandedGenericPlayerSectionHeight(originalHeight) : originalHeight;
+	}
+
+	@ModifyConstant(method = "<init>", constant = @Constant(intValue = 94))
+	private static int betterinventory$keepContainerInventoryLabelAboveInsertedRow(int originalMargin) {
+		return PlayerRowLayout.inventoryLabelBottomMargin();
 	}
 }

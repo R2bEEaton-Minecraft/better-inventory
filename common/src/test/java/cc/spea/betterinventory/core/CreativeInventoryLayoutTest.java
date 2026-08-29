@@ -31,4 +31,10 @@ class CreativeInventoryLayoutTest {
 		assertThat(CreativeInventoryLayout.inventoryMenuExtraRowStart()).isEqualTo(46);
 		assertThat(CreativeInventoryLayout.inventoryMenuExtraRowEnd()).isEqualTo(54);
 	}
+
+	@Test
+	void positions_each_extra_row_column_in_the_creative_inventory() {
+		assertThat(CreativeInventoryLayout.fourthInventoryRowX(0)).isEqualTo(9);
+		assertThat(CreativeInventoryLayout.fourthInventoryRowX(8)).isEqualTo(153);
+	}
 }

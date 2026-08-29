@@ -36,6 +36,10 @@ public final class CreativeInventoryLayout {
 		return 108;
 	}
 
+	public static int fourthInventoryRowX(int column) {
+		return 9 + column * SLOT_SIZE;
+	}
+
 	public static int destroySlotY() {
 		return 130;
 	}
